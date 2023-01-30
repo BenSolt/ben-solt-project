@@ -19,18 +19,10 @@ function RepoLists(props) {
     return (
 
         <section>
-            <div className="search-form">
-                {/* <input
-                    className="input"
-                    placeholder="Search Movie"
-                    onChange={handleChange}
-                /> */}
-            </div>
-
-
             <div className="container">
+                <p id='demo'></p>
                     {props.items.map((item) => (
-                        <div key={item.id} className='cardContainer'>
+                        <div key={item.id} className='repoContainer'>
                             <div>
                                 <div>
                                     <h4>Repo Name: {item.name}</h4>
@@ -39,24 +31,19 @@ function RepoLists(props) {
                                     <h4>Star Count: {item.stargazers_count}</h4>
                                     <h4>Fork Count: {item.forks_count}</h4>
                                     <h4>Date Created:{item.created_at}</h4>
-                                    {/* <h3>{item.title} • {item.release_date}</h3> */}
 
                                     <button onClick={(e) => routeToItem(e, item)}>ABOUT</button>
+                                </div>
 
-                                    <h3>ITEM</h3>
+                                <div className='repoCommits'>
+                                    
+                                <h3>ITEM</h3>
                                     <h4>Commit Title:{}</h4>
                                     <h4>Commit Username:{}</h4>
                                     <h4>Commit Hash:{}</h4>
                                     <h4>Dat Created:{}</h4>
-
                                 </div>
                             </div>
-
-                           
-                                        
-                                        {/* <PersonList/> */}
-                                        {/* {props.movieProp.people} */}
-                           
                         </div>
                     ))}
             </div>

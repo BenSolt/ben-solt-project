@@ -11,14 +11,16 @@ function App() {
   const [repos, setRepos] = useState([]);
   const [searchResult, setSearchResult] = useState("");
 
-  const [people, setPeople] = useState([]);
-
+  const points = [40, 100, 1, 5, 25, 10];
+  console.log(points.sort(function(a, b){return b-a}));
+  
   useEffect(() => {
     Axios
       .get('https://api.github.com/orgs/Netflix/repos')
 
       .then(response => {
         const res = response.data
+        res.sort(function(a,b) { return b.stargazers_count - a.stargazers_count});
         // const res = response.data.filter(movie =>
         // movie.stargazers_count.toLowerCase().includes(searchResult.toLowerCase()));
         console.log(res)
@@ -38,8 +40,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>HEADER</h1>
-        <h1>FILM NAME</h1>
+        <h1>Netflix's Repositories and Commits</h1>
       </header>
 
     <div className="search-form">
@@ -54,7 +55,6 @@ function App() {
       <Routes>
         <Route path="/" element={<RepoList items={repos} />} />
         {/* <Route path="/movie/:id" element={<MoreInfoFilm/>}/> */}
-        {/* <Route path="/movie/:id" element={<FilmPageNew items={movies}/>} /> */}
       </Routes>
 
     </div>
