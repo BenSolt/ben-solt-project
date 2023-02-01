@@ -6,52 +6,44 @@ function RepoLists(props) {
     let navigate = useNavigate();
 
     function routeToItem(e, repo) {
-        //e.preventDefault();
         navigate(`/repo/${repo.id}`);
     };
 
-
-    // const handleChange = e => {
-    //     // console.log(e.target.value);
-    //     setSearchResult(e.target.value);
-    //   };
-
     return (
-
         <section>
             <div className="container">
                 {props.items.map((item) => (
                     <div key={item.id} className='repoContainerCard'>
-                        <div className='test'>
+                        <div className='textBox'>
                             <h2>Repo Name: </h2>
                             <h2 className='infoText'>{item.name}</h2>
                         </div>
-                        <div className='test'>
-                            <h3>Language: </h3>
-                            <h3 className='infoText'>{item.language}</h3>
+                        <div className='textBox'>
+                            <h4>Language: </h4>
+                            <h4 className='infoText'>{item.language}</h4>
                         </div>
 
                         <div>
-                            <h3>Description:</h3>
+                            <h4>Description:</h4>
                             <p className='infoText'>{item.description}</p>
                         </div>
 
-                        <div className='test'>
-                            <h3>Star Count:</h3>
-                            <h3 className='infoText'>{item.stargazers_count}</h3>
+                        <div className='textBox'>
+                            <h4>Star Count:</h4>
+                            <h4 className='infoText'>{item.stargazers_count}</h4>
                         </div>
 
-                        <div className='test'>
-                            <h3>Fork Count:</h3>
-                            <h3 className='infoText'>{item.forks_count}</h3>
+                        <div className='textBox'>
+                            <h4>Fork Count:</h4>
+                            <h4 className='infoText'>{item.forks_count}</h4>
                         </div>
 
-                        <div className='test'>
-                            <h3>Date Created:</h3>
-                            <h3 className='infoText'>{item.created_at}</h3>
+                        <div className='textBox'>
+                            <h4>Date Created:</h4>
+                            <h4 className='infoText'>{item.created_at}</h4>
                         </div>
 
-                        <button onClick={(e) => routeToItem(e, item)}>ABOUT</button>
+                        {/* <button onClick={(e) => routeToItem(e, item)}>ABOUT</button> */}
 
                     </div>
                 ))}

@@ -23,19 +23,24 @@
 .infoText {
   font-weight: 500;
 }
-.test {
+
+/* ALIGN TEXT NEXT TO EACH OTHER */
+.textBox {
   display: flex;
   justify-content: center;
 }
+
+h1 {
+  margin: 25px 8px 6px;
+}
 h2,
 h3,
+h4,
 p {
   margin: 8px 5px;
 }
 
 .search-form {
-  padding-top: 2%;
-  padding-bottom: 1%;
   justify-content: center;
 }
 
@@ -43,6 +48,14 @@ p {
   border: 2px solid black;
   width: 20%;
   padding: 5px;
+  border-radius: 5px;
+}
+
+.btnSubmit {
+  margin: 20px 10px;
+  padding: 5px;
+
+  font-weight: bold;
   border-radius: 5px;
 }
 
@@ -57,4 +70,13 @@ button {
   margin: 20px 10px;
   font-size: 20px;
   font-weight: bold;
+  border-radius: 5px;
+}
+
+.btnOrg:hover {
+  background-color: lightblue;
+}
+.btnOrg:active {
+  background-color: rgb(67, 67, 251);
+  color: white;
 }

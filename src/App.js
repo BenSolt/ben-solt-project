@@ -22,12 +22,12 @@ function App() {
             .get(`https://api.github.com/orgs/${orgName}/repos`)
             //.get('https://api.github.com/orgs/Netflix/repos')
             .then(response => {
-                
+
                 const res = response.data
                 // FILTER BY NAME
                 // const res = response.data.filter(repo =>
                 // repo.name.toLowerCase().includes(searchResult.toLowerCase()));
-                
+
                 // SORT REPOS STAR COUNT IN DESCENDING ORDER
                 res.sort(function (a, b) { return b.stargazers_count - a.stargazers_count });
 
@@ -38,7 +38,7 @@ function App() {
                 console.error(error);
 
             });
-    }, [searchResult,orgName]);
+    }, [searchResult, orgName]);
 
     // const handleChange = e => {
     //     setSearchResult(e.target.value);
@@ -48,6 +48,14 @@ function App() {
         setInputValue(e.target.value);
     };
 
+    function assignInputValue() {
+        if (inputValue === "") {
+            setOrgName("Organization Name")
+        } else {
+            setOrgName(inputValue)
+        }
+    }
+
     // COMMMITS //////////////////////////////////////////////////
     // useEffect(() => {
     //     const owner = 'test-user',
@@ -55,7 +63,7 @@ function App() {
     //         perPage = 5;
     //     Axios
     //         .get(`https://api.github.com/repos/Netflix/astyanax/commits`, {owner, repo, per_page: perPage})
-            
+
     //         .then(response => {
     //             const res = response.data
     //             console.log("commits:",res)
@@ -67,15 +75,15 @@ function App() {
     //         });
     // }, []);
 
-    
+
     return (
         <div className="App">
-            <header>
-                <h1>Netflix's Repositories and Commits</h1>
+            <header className='textBox'>
+                <h1>{orgName}'s</h1> <h1>Repositories and Commits</h1>
             </header>
 
             <div className="search-form">
-             
+
                 <input
                     className="input"
                     type="text"
@@ -84,10 +92,8 @@ function App() {
                     onChange={handleChangeOrg}
                     value={inputValue}
                 />
-                <button className="btnOrg" onClick={() => setOrgName(inputValue)}>Submit</button>
-                <h2>Organization Name: {orgName}</h2>
+                <button className="btnSubmit" onClick={assignInputValue}>SUBMIT</button>
             </div>
-
 
             <Routes>
                 <Route path="/" element={<RepoList items={repos} />} />
