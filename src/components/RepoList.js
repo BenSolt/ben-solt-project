@@ -5,9 +5,9 @@ function RepoLists(props) {
 
     let navigate = useNavigate();
 
-    function routeToItem(e, movie) {
+    function routeToItem(e, repo) {
         //e.preventDefault();
-        navigate(`/movie/${movie.id}`);
+        navigate(`/repo/${repo.id}`);
     };
 
 
@@ -20,32 +20,55 @@ function RepoLists(props) {
 
         <section>
             <div className="container">
-                <p id='demo'></p>
-                    {props.items.map((item) => (
-                        <div key={item.id} className='repoContainer'>
-                            <div>
-                                <div>
-                                    <h4>Repo Name: {item.name}</h4>
-                                    <h4>Language: {item.language}</h4>
-                                    <h4>Description: {item.description}</h4>
-                                    <h4>Star Count: {item.stargazers_count}</h4>
-                                    <h4>Fork Count: {item.forks_count}</h4>
-                                    <h4>Date Created:{item.created_at}</h4>
+                {props.items.map((item) => (
+                    <div key={item.id} className='repoContainerCard'>
+                        <div className='test'>
+                            <h2>Repo Name: </h2>
+                            <h2 className='infoText'>{item.name}</h2>
+                        </div>
+                        <div className='test'>
+                            <h3>Language: </h3>
+                            <h3 className='infoText'>{item.language}</h3>
+                        </div>
 
-                                    <button onClick={(e) => routeToItem(e, item)}>ABOUT</button>
-                                </div>
+                        <div>
+                            <h3>Description:</h3>
+                            <p className='infoText'>{item.description}</p>
+                        </div>
 
-                                <div className='repoCommits'>
-                                    
-                                <h3>ITEM</h3>
-                                    <h4>Commit Title:{}</h4>
-                                    <h4>Commit Username:{}</h4>
-                                    <h4>Commit Hash:{}</h4>
-                                    <h4>Dat Created:{}</h4>
-                                </div>
+                        <div className='test'>
+                            <h3>Star Count:</h3>
+                            <h3 className='infoText'>{item.stargazers_count}</h3>
+                        </div>
+
+                        <div className='test'>
+                            <h3>Fork Count:</h3>
+                            <h3 className='infoText'>{item.forks_count}</h3>
+                        </div>
+
+                        <div className='test'>
+                            <h3>Date Created:</h3>
+                            <h3 className='infoText'>{item.created_at}</h3>
+                        </div>
+
+                        <button onClick={(e) => routeToItem(e, item)}>ABOUT</button>
+
+                    </div>
+                ))}
+
+                {/* {props.commits.map((info) => (
+                    <div key={info.id} className='repoContainerCard'>
+                        <div>
+                            <div className='repoCommits'>
+                                <h2>ITEM</h2>
+                                <h3>Commit Title:{ }</h3>
+                                <h3>Commit Username:{ }</h3>
+                                <h3>Commit Hash:{ }</h3>
+                                <h3>Dat Created:{ }</h3>
                             </div>
                         </div>
-                    ))}
+                    </div>
+                ))} */}
             </div>
 
         </section>
