@@ -2,37 +2,165 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 10px 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* /////////////////////////////////////////////////// */
+.repoContainerCard {
+  margin: 12px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background: white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*//////////////// CHANGE BACKGROUND COLOR /////////////////////////*/
+.yellow {
+  margin: 12px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: Gold;
+}
+
+.netflixRed {
+  margin: 12px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #ff646c;
+}
+
+.blueFacebook {
+  margin: 12px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #4267B2;
+}
+
+.blueTwitter {
+  margin: 12px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #1DA1F2;
+}
+
+.orangeInstagram {
+  margin: 12px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #FCAF45;
+}
+
+.green {
+  margin: 12px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: PaleGreen;
+}
+
+.pink {
+  margin: 12px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: rgb(255, 109, 255);
+  color: black;
+}
+
+.white {
+  margin: 12px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: WhiteSmoke;
+  color: black;
+}
+/* /////////////////////////////////////////////// */
+
+.orgTitle {
+  margin-top: 6px;
+  text-decoration: underline;
+}
+
+/* API INFO DATA */
+.infoText {
+  font-weight: 500;
+}
+
+/* ALIGN TEXT NEXT TO EACH OTHER */
+.textBox {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+h1 {
+  margin: 25px 8px 6px;
+}
+h2,
+h3,
+h4,
+p {
+  margin: 4px 5px;
+}
+
+.search-form {
+  justify-content: center;
+}
+
+.input {
+  border: 2px solid black;
+  width: 20%;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.btnSubmit {
+  margin: 20px 10px;
+  padding: 5px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.btnSubmit:hover {
+  background-color: lightblue;
+}
+.btnSubmit:active {
+  background-color: rgb(67, 67, 251);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+button {
+  margin: 12px 0 12px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/* BUTTON ORGANIZATION */
+.btnOrg {
+  width: 128px;
+  height: 32px;
+  margin: 20px 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.btnOrg:hover {
+  background-color: lightblue;
+}
+.btnOrg:active {
+  background-color: rgb(67, 67, 251);
+  color: white;
+}
+
+
+/* COMMITS CARD */
+.containerCommit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  padding: 10px 20px;
+}
+
+.btnBack {
+  margin: 10px 25px;
+  padding: 5px 15px;
+  font-weight: bold;
+  border-radius: 5px;
 }

@@ -1,19 +1,28 @@
 import { useNavigate } from 'react-router-dom';
-
+import React, { useEffect, useState } from "react";
 
 function RepoLists(props) {
 
     let navigate = useNavigate();
+    const [commitInfo, setCommitInfo] = useState([]);
 
     function routeToItem(e, repo) {
-        navigate(`/repo/${repo.id}`);
+        // console.log(repo.id)
+        //navigate(`/repo/${repo.id}`);
+        console.log(repo.name)
+        navigate(`/${repo.name}/commits`);
     };
 
+
+
     return (
-        <section>
             <div className="container">
                 {props.items.map((item) => (
-                    <div key={item.id} className='repoContainerCard'>
+                    <div key={item.id} className={props.setColor}>
+                    {/* <div key={item.id} className='repoContainerCard'> */}
+
+                        <h2 className='orgTitle'>{item.owner.login}</h2>
+
                         <div className='textBox'>
                             <h2>Repo Name: </h2>
                             <h2 className='infoText'>{item.name}</h2>
@@ -43,27 +52,11 @@ function RepoLists(props) {
                             <h4 className='infoText'>{item.created_at}</h4>
                         </div>
 
-                        {/* <button onClick={(e) => routeToItem(e, item)}>ABOUT</button> */}
+                        <button className='btnOrg' onClick={(e) => routeToItem(e, item)}>COMMITS</button>
 
                     </div>
                 ))}
-
-                {/* {props.commits.map((info) => (
-                    <div key={info.id} className='repoContainerCard'>
-                        <div>
-                            <div className='repoCommits'>
-                                <h2>ITEM</h2>
-                                <h3>Commit Title:{ }</h3>
-                                <h3>Commit Username:{ }</h3>
-                                <h3>Commit Hash:{ }</h3>
-                                <h3>Dat Created:{ }</h3>
-                            </div>
-                        </div>
-                    </div>
-                ))} */}
             </div>
-
-        </section>
     );
 }
 
