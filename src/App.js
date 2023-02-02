@@ -41,20 +41,20 @@ function App() {
         setSearchResult(e.target.value);
     };
 
-    useEffect(() => {
-        Axios
-            .get('https://api.github.com/organizations')
+    // useEffect(() => {
+    //     Axios
+    //         .get('https://api.github.com/organizations')
 
-            .then(response => {
-                const res = response.data
-                res.sort(function (a, b) { return b.stargazers_count - a.stargazers_count });
-                console.log('ORGS', res)
-            })
-            .catch(error => {
-                console.error(error);
+    //         .then(response => {
+    //             const res = response.data
+    //             res.sort(function (a, b) { return b.stargazers_count - a.stargazers_count });
+    //             console.log('ORGS', res)
+    //         })
+    //         .catch(error => {
+    //             console.error(error);
 
-            });
-    }, []);
+    //         });
+    // }, []);
 
 
     const handleChangeOrg = (e) => {
@@ -120,7 +120,7 @@ function App() {
 
             <Routes>
                 <Route path="/" element={<RepoList items={repos} setColor={color} />} />
-                <Route path="/:repo/commits" element={<CommitList setColor={color} />} />
+                <Route path="/:org/:repo/commits" element={<CommitList setColor={color} />} />
             </Routes>
 
         </div>

@@ -8,13 +8,13 @@ function CommitList(props) {
 
     const [commitInfo, setCommitInfo] = useState([]);
 
-    const { repo } = useParams()
+    const { org,repo } = useParams()
 
     //COMMMITS //////////////////////////////////////////////////
     useEffect(() => {
         Axios
-            .get(`https://api.github.com/repos/Netflix/${repo}/commits`)
-
+            // .get(`https://api.github.com/repos/Netflix/${repo}/commits`)
+            .get(`https://api.github.com/repos/${org}/${repo}/commits`)
             .then(response => {
                 const res = response.data
                 console.log("commits:", res)
@@ -63,7 +63,6 @@ function CommitList(props) {
                     <div className='textBox'>
                         <h4>Commit Title: </h4>
                         <h4 className='infoText'>WHAT'S TITLE?</h4>
-                        {/* <h4 className='infoText'>{item.commit.author.name}</h4> */}
                     </div>
 
                     <div className='textBox'>

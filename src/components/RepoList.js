@@ -7,10 +7,8 @@ function RepoLists(props) {
     const [commitInfo, setCommitInfo] = useState([]);
 
     function routeToItem(e, repo) {
-        // console.log(repo.id)
-        //navigate(`/repo/${repo.id}`);
         console.log(repo.name)
-        navigate(`/${repo.name}/commits`);
+        navigate(`${repo.owner.login}/${repo.name}/commits`);
     };
 
 
