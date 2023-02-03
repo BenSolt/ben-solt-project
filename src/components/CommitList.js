@@ -50,7 +50,7 @@ function CommitList(props) {
 
                         <div className='textBox'>
                             <h4>Commit Title: </h4>
-                            <h4 className='infoText'>WHAT'S TITLE?</h4>
+                            <h4 className='infoText'>{item.commit.author.name}</h4>
                         </div>
 
                         <div className='textBox'>
