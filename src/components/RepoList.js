@@ -13,7 +13,7 @@ function RepoLists(props) {
     return (
         <div>
             {/* SEARCH BY ORGANIZATION */}
-            <div className="search-form">QQ
+            <div className="search-form">
                 <input
                     className="input"
                     type="text"
