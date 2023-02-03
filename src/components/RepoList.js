@@ -1,10 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import React, { useEffect, useState } from "react";
 
 function RepoLists(props) {
 
     let navigate = useNavigate();
-    const [commitInfo, setCommitInfo] = useState([]);
 
     function routeToItem(e, repo) {
         console.log(repo.name)
@@ -12,12 +10,10 @@ function RepoLists(props) {
     };
 
 
-
     return (
             <div className="container">
                 {props.items.map((item) => (
                     <div key={item.id} className={props.setColor}>
-                    {/* <div key={item.id} className='repoContainerCard'> */}
 
                         <h2 className='orgTitle'>{item.owner.login}</h2>
 
@@ -25,6 +21,7 @@ function RepoLists(props) {
                             <h2>Repo Name: </h2>
                             <h2 className='infoText'>{item.name}</h2>
                         </div>
+
                         <div className='textBox'>
                             <h4>Language: </h4>
                             <h4 className='infoText'>{item.language}</h4>

@@ -15,13 +15,13 @@ function App() {
     const [inputValue, setInputValue] = useState("");
     const [color, setColor] = useState('netflixRed');
 
+    //GET REPOS REQUEST//////////////////////////////////////////////////
     useEffect(() => {
         Axios
             .get(`https://api.github.com/orgs/${orgName}/repos`)
-            //.get('https://api.github.com/orgs/Netflix/repos')
             .then(response => {
 
-                // FILTER BY NAME
+                // FILTER BY NAME AND SET TO LOWER CASE
                 const res = response.data.filter(repo =>
                     repo.name.toLowerCase().includes(searchResult.toLowerCase()));
 
@@ -37,30 +37,17 @@ function App() {
             });
     }, [searchResult, orgName]);
 
+    // INPUT VALUE FOR SEARCHING BY REPO NAME
     const handleChange = e => {
         setSearchResult(e.target.value);
     };
 
-    // useEffect(() => {
-    //     Axios
-    //         .get('https://api.github.com/organizations')
-
-    //         .then(response => {
-    //             const res = response.data
-    //             res.sort(function (a, b) { return b.stargazers_count - a.stargazers_count });
-    //             console.log('ORGS', res)
-    //         })
-    //         .catch(error => {
-    //             console.error(error);
-
-    //         });
-    // }, []);
-
-
+    // UPDATES INPUT VALUE FOR ORGANIZATION
     const handleChangeOrg = (e) => {
         setInputValue(e.target.value);
     };
 
+    // INPUT VALUE WRITTEN USED TO GET SAID ORGANIZATION FROM API GET REQUEST
     function assignInputValue() {
         if (inputValue === "") {
             setOrgName("Organization Name")
@@ -69,7 +56,7 @@ function App() {
         }
     }
 
-    // CHANGE ORGANIZATION CARD COLOR DEPENDING ON ORGANIZATION
+    // CHANGE ORGANIZATION CARD COLOR DEPENDING ON ORGANIZATION API GET REQUEST
     function ChangeColor() {
         for (let i = 0; i < repos.length; i++) {
             if (orgName === "netflix") {
@@ -110,7 +97,7 @@ function App() {
                 <button className="btnSubmit" onClick={assignInputValue}>SUBMIT</button>
             </div>
 
-            {/* INPUT BAR TO SEARCH BY REPOSITORY NAME */}
+            {/* SEARCH BY REPOSITORY NAME */}
             <input
                 className="input"
                 type="text"
