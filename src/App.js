@@ -15,7 +15,7 @@ function App() {
     const [inputValue, setInputValue] = useState("");
     const [color, setColor] = useState('netflixRed');
 
-    //GET REPOS REQUEST//////////////////////////////////////////////////
+    //API: GET REPOS REQUEST//////////////////////////////////////////////////
     useEffect(() => {
         Axios
             .get(`https://api.github.com/orgs/${orgName}/repos`)
@@ -84,30 +84,12 @@ function App() {
                 <h1>{orgName}'s</h1> <h1>Repositories and Commits</h1>
             </header>
 
-            {/* SEARCH BY ORGANIZATION */}
-            <div className="search-form">
-                <input
-                    className="input"
-                    type="text"
-                    placeholder="Search Organization"
-                    name={orgName}
-                    onChange={handleChangeOrg}
-                    value={inputValue}
-                />
-                <button className="btnSubmit" onClick={assignInputValue}>SUBMIT</button>
-            </div>
-
-            {/* SEARCH BY REPOSITORY NAME */}
-            <input
-                className="input"
-                type="text"
-                placeholder="Search Repo by Name"
-                onChange={handleChange}
-            />
-
             <Routes>
-                <Route path="/" element={<RepoList items={repos} setColor={color} />} />
-                <Route path="/:org/:repo/commits" element={<CommitList setColor={color} />} />
+                <Route path="/" element={<RepoList items={repos} colorProp={color}  handleChangeOrgProp={handleChangeOrg}
+                orgNameProp={orgName} inputValueProp={inputValue} assignInputValueProp={assignInputValue} 
+                handleChangeProp={handleChange}
+                />} />
+                <Route path="/:org/:repo/commits" element={<CommitList colorProp={color} />} />
             </Routes>
 
         </div>

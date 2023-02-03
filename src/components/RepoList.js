@@ -11,9 +11,31 @@ function RepoLists(props) {
 
 
     return (
+        <div>
+            {/* SEARCH BY ORGANIZATION */}
+            <div className="search-form">
+                <input
+                    className="input"
+                    type="text"
+                    placeholder="Search Organization"
+                    name={props.orgNameProp}
+                    onChange={props.handleChangeOrgProp}
+                    value={props.inputValueProp}
+                />
+                <button className="btnSubmit" onClick={props.assignInputValueProp}>SUBMIT</button>
+            </div>
+
+            {/* SEARCH BY REPOSITORY NAME */}
+            <input
+                className="input"
+                type="text"
+                placeholder="Search Repo by Name"
+                onChange={props.handleChangeProp}
+            />
+
             <div className="container">
                 {props.items.map((item) => (
-                    <div key={item.id} className={props.setColor}>
+                    <div key={item.id} className={props.colorProp}>
 
                         <h2 className='orgTitle'>{item.owner.login}</h2>
 
@@ -48,10 +70,10 @@ function RepoLists(props) {
                         </div>
 
                         <button className='btnOrg' onClick={(e) => routeToItem(e, item)}>COMMITS</button>
-
                     </div>
                 ))}
             </div>
+        </div>
     );
 }
 

@@ -10,7 +10,7 @@ function CommitList(props) {
 
     const { org, repo } = useParams()
 
-    //GET COMMMITS REQUEST//////////////////////////////////////////////////
+    //API: GET COMMMITS REQUEST//////////////////////////////////////////////////
     useEffect(() => {
         Axios
             .get(`https://api.github.com/repos/${org}/${repo}/commits`)
@@ -34,8 +34,7 @@ function CommitList(props) {
 
 
     return (
-        <div className="App">
-
+        <div >
             <div className='textBox'>
                  {/* DISPLAY REPO NAME */}
                 <h2>Repo Name: </h2>
@@ -46,7 +45,7 @@ function CommitList(props) {
 
             <div className="containerCommit">
                 {commitInfo.map((item) => (
-                    <div key={item.sha} className={props.setColor}>
+                    <div key={item.sha} className={props.colorProp}>
 
                         <div className='textBox'>
                             <h4>Commit Title: </h4>
